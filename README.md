@@ -36,3 +36,33 @@ The call above returns the following JSON
 	}
 
 To download each individual file, use the Url "/file/$id".
+
+## Writing Data
+
+To write data to the DataStore, make a POST request to upload.php with the file as "file" and the JSON data as "data" in the POST request.
+
+The "data" JSON is a dictionary of key value pairs associated with that file, eg:
+	{
+		"type": "img",
+		"height": 400,
+		"width": 600
+	}
+
+On success this endpoint returns
+	{
+		"result": "success"
+	}
+
+
+## Errors
+
+Errors are returned with a code and a message
+	{
+		"result": "error",
+		"code": 3,
+		"msg": "can't parse json"
+	}
+
+## Setup
+
+DataStore must be able to write to the file/ directory.
